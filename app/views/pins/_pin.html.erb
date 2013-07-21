@@ -1,0 +1,32 @@
+<div class="box thumbnail">
+
+  <%= link_to (image_tag pin.image(:medium)), pin %>
+
+  <!-- Mouseover Options-->
+  <% if user_signed_in? %>
+      <div class="options">
+        <%= link_to  "#", class: "btn btn-danger btn-mini" do %>
+            <i class="icon-heart icon-white"></i>
+        <% end %>
+
+      </div>
+  <% end %>
+
+  <div class="pinwrapper">
+
+    <p class="description">
+      <%= pin.pinname %>
+    </p>
+
+    <div class="pinuserarea">
+        <div class="pinuser">
+          <strong>
+            Added by<br>
+            <%= link_to pin.user.name, pin.user %>
+          </strong>
+        </div>
+    </div>
+
+  </div>
+
+</div>

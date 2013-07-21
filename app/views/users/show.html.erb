@@ -1,0 +1,55 @@
+<center>
+<div class="user-header">
+
+  <div class="user-profile-image">
+    <%= image_tag @user.avatar.url(:avatar), class: "user-profile-image" %>
+  </div>
+
+  <div class="user-profile-information">
+    <h2 class="user-profile-name"><%= @user.name %></h2>
+
+    <p class="user-profile-bio">
+
+      <% if @user.userbio.present? %>
+        <%= @user.userbio %>
+      <% else %>
+        :( This user has no Bio
+          <br>
+          <br>
+      <% end %>
+      </p>
+
+    <p class="user-profile-social-links pull-right">
+      <% if @user.facebooklink.present? %>
+          <%= link_to @user.facebooklink, title: "Facebook", :target => '_blank' do %>
+              <i class="icon-facebook-sign"></i>
+          <% end %>
+      <% end %>
+
+      <% if @user.twitterlink.present? %>
+          <%= link_to @user.twitterlink, title: "Twitter", :target => '_blank' do %>
+              <i class="icon-twitter-sign"></i>
+          <% end %>
+      <% end %>
+    </p>
+  </div>
+
+</div>
+</center>
+
+<hr>
+
+<div id="pins">
+<%= render @pins %>
+</div>
+
+<%= will_paginate @pins %>
+
+
+
+
+
+
+
+
+

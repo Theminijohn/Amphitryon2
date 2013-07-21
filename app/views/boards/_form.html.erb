@@ -1,0 +1,11 @@
+<%= simple_form_for(@board, html: { class: "form-horizontal", multipart: true}) do |f| %>
+  <%= f.error_notification %>
+
+
+    <%= f.input :name %>
+    <%= f.input :description, as: :text, input_html: { rows: "2"}%>
+
+    <div class="form-actions">
+    <%= f.button :submit%>
+    </div>
+<% end %>

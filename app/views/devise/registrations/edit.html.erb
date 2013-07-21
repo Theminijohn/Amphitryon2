@@ -1,0 +1,89 @@
+<h2>Edit <%= @user.name %></h2>
+
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, class: 'form-horizontal' }) do |f| %>
+    <%= f.error_notification %>
+    <%= f.full_error :avatar_file_size, class: "alert alert-error" %>
+    <%= f.full_error :avatar_content_type, class: "alert alert-error" %>
+
+    <%= f.input :avatar %>
+
+    <!-- Name -->
+    <%= f.input :name, :wrapper => :append do %>
+        <%= f.input_field :name %><span class="add-on"><i class="icon-user"></i></span>
+    <% end %>
+
+    <!-- User Bio -->
+    <%= f.input :userbio, as: :text, input_html: { rows: "2"} %>
+
+    <!-- Country -->
+    <%= f.input :country, :wrapper => :append do %>
+        <%= f.input_field :country %><span class="add-on"><i class="icon-flag"></i></span>
+    <% end %>
+
+    <!-- Facebook Link -->
+    <%= f.input :facebooklink, label: "Facebook Link", :wrapper => :append do %>
+        <%= f.input_field :facebooklink %><span class="add-on"><i class="icon-facebook"></i></span>
+    <% end %>
+
+    <!-- Twitter link -->
+    <%= f.input :twitterlink, label: "Twitter Link", :wrapper => :append do %>
+        <%= f.input_field :twitterlink %><span class="add-on"><i class="icon-twitter"></i></span>
+    <% end %>
+
+    <!-- Email Address -->
+    <%= f.input :email, :wrapper => :append do %>
+        <%= f.input_field :email %><span class="add-on"><i class="icon-envelope"></i></span>
+    <% end %>
+
+    <!-- Password -->
+    <%= f.input :password, label: "New Password", autocomplete: "off", :wrapper => :append do %>
+        <%= f.input_field :password %><span class="add-on"><i class="icon-key"></i></span>
+    <% end %>
+
+    <!-- Password Confirmation -->
+    <%= f.input :password_confirmation, label: "New Password Confirmation", autocomplete: "off", :wrapper => :append do %>
+        <%= f.input_field :password_confirmation %><span class="add-on"><i class="icon-key"></i></span>
+    <% end %>
+
+
+    <div class="form-actions">
+      <%= f.submit "Update", class: "btn btn-primary"%>
+    </div>
+<% end %>
+
+<h3>Cancel my account</h3>
+
+<div class="btn-group">
+  <%= link_to "#UserCancellation", title: "Cancel your Account", :data => {:toggle=>"modal"}, class: "btn btn-danger" do %>
+      <i class="icon-trash icon-white"></i> I'm Unhappy
+  <% end %>
+</div>
+
+<!-- Modal -->
+<div id="UserCancellation" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Are you sure ?</h3>
+  </div>
+  <div class="modal-body">
+    <p>
+      <h5>Your Profile, Boards and Masterpieces will be permanently deleted</h5>
+
+      People who subscribed to your Pins or Boards will no longer be able to access your content. Links to your
+      Pins will be redirected to a 404 Page. All your Content will permanently deleted.
+
+      <h5>Your Account will be permanently deleted</h5>
+
+      Once Cancellation is done, you can not reopen your Account. Your username will be set free.
+
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <%= link_to registration_path(resource_name),  :data => { :confirm => "Are you sure?" }, :method => :delete, class: "btn btn-danger" do %>
+        <i class="icon-warning-sign"></i> Cancel my Account
+    <% end %>
+  </div>
+</div>
+
+<%= link_to "Back", :back, class: "btn btn-primary" %>
