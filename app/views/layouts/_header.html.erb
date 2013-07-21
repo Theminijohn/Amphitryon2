@@ -60,7 +60,7 @@
           <div class="modal-body">
             <span><%= f.input :image, label: "Upload an Image", class: "fileupload-new btn btn-file" %></span>
             <%= f.input :pinname, input_html: { rows: "1"}, label: "Name"%>
-            <%= f.association :category,  as: :select %>
+            <%= f.association :category,  as: :select, :prompt => 'Select one' %>
             <%= f.input :description, as: :text, input_html: { rows: "5"} %>
           </div>
 

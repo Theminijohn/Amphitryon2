@@ -7,6 +7,7 @@
 
 
     <%= f.input :pinname, input_html: { rows: "1"} %>
+    <%= f.association :category,  as: :select, :prompt => 'Select one' %>
     <%= f.input :description, as: :text, input_html: { rows: "5"} %>
 
     <%= f.button :submit, class: "btn btn-primary" %>

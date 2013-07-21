@@ -1,15 +1,10 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @category.name %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @category.description %>
-</p>
+<ul class="breadcrumb">
+  <li><%= link_to "Categories", categories_path %> <span class="divider">/</span> </li>
+  <li class="acive"><%= @category.name %></a> <span class="divider">/</span></li>
+  <li class="pull-right"><%= @category.description %></li>
+</ul>
 
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<!--Rendering Pins from this Category-->
+<%= render @category.pins %>
