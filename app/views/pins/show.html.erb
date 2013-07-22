@@ -1,8 +1,13 @@
 <div class="container-fluid">
   <div class="row-fluid">
 
+    <div class="span8">
+
+      <div>
+             <h3><%= @pin.pinname %></h3>
+      </div>
     <!-- Pin image Span -->
-    <div class="show_pin span8">
+    <div>
 
       <div>
         <%=  image_tag @pin.image %>
@@ -18,10 +23,6 @@
 
       <div class="description">
 
-        <p>
-          <%= @pin.pinname %>
-        </p>
-
         <%= link_to  "#", class: "btn btn-danger btn-small" do %>
             <i class="icon-heart icon-white"></i> Like
         <% end %>
@@ -35,10 +36,21 @@
       </div>
     </div>
     <!--Pin Image Span END -->
+    </div>
 
 
     <!-- Pin Image Info and Comments -->
     <div class="span4 ">
+      <br>
+      <div>
+        <h4><%= number_to_currency(@pin.price, :unit => "€") %></h4>
+        <small>
+          Ships from: <i><%= @pin.shipsfrom %></i>
+        </small>
+      </div>
+
+       <hr>
+
       <div class="show_pin_user">
         <div class="media sho_pin_user">
           <a class="pull-left" >
@@ -71,7 +83,8 @@
       <hr>
 
       <p>
-        <%= @pin.description %> <br>
+        <!--Simple_format for Showing HTML and line Breaks-->
+        <%= simple_format(@pin.description) %> <br>
       </p>
 
       <hr>

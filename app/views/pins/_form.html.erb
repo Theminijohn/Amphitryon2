@@ -6,7 +6,18 @@
     <%= f.input :image, label: "Upload an Image" %>
 
 
-    <%= f.input :pinname, input_html: { rows: "1"} %>
+    <%= f.input :pinname, input_html: { rows: "1"}, label: "Name", :wrapper => :append do %>
+        <%= f.input_field :pinname %><span class="add-on"><i class="icon-list-ul"></i></span>
+    <% end %>
+
+    <%= f.input :price, :wrapper => :append do %>
+        <%= f.input_field :price %><span class="add-on">$</span>
+    <% end %>
+
+    <%= f.input :shipsfrom, label: "Ships From", :wrapper => :append do %>
+        <%= f.input_field :shipsfrom %><span class="add-on"><i class="icon-flag"></i></span>
+    <% end %>
+
     <%= f.association :category,  as: :select, :prompt => 'Select one' %>
     <%= f.input :description, as: :text, input_html: { rows: "5"} %>
 

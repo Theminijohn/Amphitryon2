@@ -1,5 +1,6 @@
 class Pin < ActiveRecord::Base
-  attr_accessible :description, :image, :image_remote_url, :pinname, :category_id
+  attr_accessible :description, :image, :image_remote_url, :pinname, :category_id,
+									:price, :shipsfrom
 
 	#Validating Pin Name
 	validates :pinname, presence: true, length: { :minimum => 5, :maximum => 35}

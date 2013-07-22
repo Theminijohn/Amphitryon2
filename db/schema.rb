@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130721111838) do
+ActiveRecord::Schema.define(:version => 20130722181034) do
 
   create_table "boards", :force => true do |t|
     t.string   "name"
@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(:version => 20130721111838) do
     t.string   "image_remote_url"
     t.string   "pinname"
     t.integer  "category_id"
+    t.integer  "price"
+    t.string   "shipsfrom"
   end
 
   add_index "pins", ["user_id"], :name => "index_pins_on_user_id"
